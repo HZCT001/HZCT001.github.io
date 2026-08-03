@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-site-verification" content="FuBTzc8QXCSf0a5hw047KYYgYr0_BWdlQyMO6qcjGGg" />
+  <meta name="description" content="炎焱网络科技有限公司，专注于超休闲游戏" />
+  <meta name="theme-color" content="#10131a" />
+
+  <title>炎焱网络科技有限公司｜超休闲游戏</title>
+
+  <style>
+    :root {
+      --bg: #0b0e14;
+      --bg-soft: #111722;
+      --card: rgba(255, 255, 255, 0.055);
+      --line: rgba(255, 255, 255, 0.10);
+      --text: #f7f8fb;
+      --muted: #aab2c0;
+      --primary: #ff6b35;
+      --primary-2: #ffb347;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+      --radius: 24px;
+      --max-width: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 80% 10%, rgba(255, 107, 53, 0.16), transparent 30%),
+        radial-gradient(circle at 20% 20%, rgba(255, 179, 71, 0.08), transparent 28%),
+        linear-gradient(180deg, #090c11 0%, #0d1118 50%, #0a0d12 100%);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      background: rgba(9, 12, 17, 0.72);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: #17110d;
+      background: linear-gradient(135deg, var(--primary-2), var(--primary));
+      box-shadow: 0 10px 30px rgba(255, 107, 53, 0.28);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .brand-name {
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 132px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 179, 71, 0.22);
+      border-radius: 999px;
+      background: rgba(255, 179, 71, 0.08);
+      color: #ffd5a0;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary-2);
+      box-shadow: 0 0 16px rgba(255, 179, 71, 0.85);
+    }
+
+    h1 {
+      font-size: clamp(44px, 7vw, 78px);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+      margin-bottom: 24px;
+    }
+
+    .gradient-text {
+      display: block;
+      background: linear-gradient(100deg, #ffffff 5%, #ffd3a1 48%, #ff7a40 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.85;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border-radius: 14px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 15px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      color: #21120b;
+      background: linear-gradient(135deg, var(--primary-2), var(--primary));
+      box-shadow: 0 14px 40px rgba(255, 107, 53, 0.25);
+    }
+
+    .button-secondary {
+      border-color: var(--line);
+      background: rgba(255, 255, 255, 0.045);
+      color: var(--text);
+    }
+
+    .visual {
+      position: relative;
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orb {
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, #ffd095, transparent 18%),
+        radial-gradient(circle at 62% 66%, rgba(255, 87, 34, 0.8), transparent 34%),
+        linear-gradient(135deg, #ffbc68, #ff5a2a 60%, #8f2513);
+      filter: saturate(1.1);
+      box-shadow:
+        0 0 100px rgba(255, 107, 53, 0.30),
+        inset -30px -36px 70px rgba(80, 15, 4, 0.36),
+        inset 20px 18px 50px rgba(255, 255, 255, 0.16);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .orb::before,
+    .orb::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .orb::before {
+      inset: -44px;
+    }
+
+    .orb::after {
+      inset: -92px;
+      border-color: rgba(255, 107, 53, 0.14);
+    }
+
+    .game-card {
+      position: absolute;
+      width: 190px;
+      padding: 18px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(17, 23, 34, 0.72);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .game-card strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 7px;
+    }
+
+    .game-card span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .game-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 14px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(255, 179, 71, 0.95), rgba(255, 107, 53, 0.95));
+      color: #1a0f0a;
+      font-size: 24px;
+    }
+
+    .card-one {
+      top: 44px;
+      left: 0;
+      transform: rotate(-5deg);
+    }
+
+    .card-two {
+      right: 0;
+      bottom: 52px;
+      transform: rotate(5deg);
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+
+    .section-kicker {
+      color: #ffb46f;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 52px);
+      line-height: 1.2;
+      letter-spacing: -0.035em;
+      margin-bottom: 16px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      min-height: 250px;
+      padding: 28px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.025));
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255, 156, 85, 0.36);
+    }
+
+    .service-number {
+      display: inline-grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 42px;
+      border-radius: 13px;
+      background: rgba(255, 120, 55, 0.10);
+      border: 1px solid rgba(255, 120, 55, 0.18);
+      color: #ffc089;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .service-card h3 {
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .approach {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 54px;
+      align-items: center;
+      padding: 48px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 0% 100%, rgba(255, 107, 53, 0.16), transparent 32%),
+        rgba(255, 255, 255, 0.035);
+    }
+
+    .approach p {
+      color: var(--muted);
+      line-height: 1.85;
+      font-size: 16px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .step-mark {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-2), var(--primary));
+      color: #25150d;
+      font-weight: 900;
+      font-size: 12px;
+    }
+
+    .step h3 {
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .step p {
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .contact {
+      padding-bottom: 110px;
+    }
+
+    .contact-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 46px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #ffb05f 0%, #ff6b35 60%, #ed4d20 100%);
+      color: #25130c;
+      box-shadow: 0 30px 80px rgba(255, 90, 32, 0.18);
+    }
+
+    .contact-box h2 {
+      margin-bottom: 10px;
+      color: #25130c;
+    }
+
+    .contact-box p {
+      max-width: 650px;
+      color: rgba(37, 19, 12, 0.76);
+      line-height: 1.7;
+    }
+
+    .contact-box .button {
+      flex: 0 0 auto;
+      border-color: rgba(37, 19, 12, 0.16);
+      background: rgba(255, 255, 255, 0.82);
+      color: #25130c;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      min-height: 96px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50% { transform: translateY(-18px) rotate(3deg); }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .approach {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 24px;
+      }
+
+      .visual {
+        min-height: 430px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: auto;
+      }
+
+      .service-number {
+        margin-bottom: 28px;
+      }
+
+      .contact-box {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .nav-inner {
+        height: 68px;
+      }
+
+      .brand-name {
+        font-size: 14px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 108px;
+      }
+
+      h1 {
+        font-size: 44px;
+      }
+
+      .hero-copy {
+        font-size: 16px;
+      }
+
+      .visual {
+        min-height: 360px;
+      }
+
+      .orb {
+        width: 250px;
+        height: 250px;
+      }
+
+      .game-card {
+        width: 160px;
+        padding: 15px;
+      }
+
+      .card-one {
+        top: 28px;
+      }
+
+      .card-two {
+        bottom: 34px;
+      }
+
+      .section {
+        padding: 72px 0;
+      }
+
+      .approach,
+      .contact-box {
+        padding: 28px;
+      }
+
+      .footer-inner {
+        padding: 24px 0;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="返回首页">
+        <span class="brand-mark">焱</span>
+        <span class="brand-name">炎焱网络科技有限公司</span>
+      </a>
+
+      <nav class="nav-links" aria-label="网站导航">
+        <a href="#about">关于我们</a>
+        <a href="#services">业务方向</a>
+        <a href="#approach">研发理念</a>
+        <a href="#contact">联系我们</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Hyper-Casual Game Studio</div>
+          <h1>
+            让简单的玩法，
+            <span class="gradient-text">带来持续的快乐。</span>
+          </h1>
+          <p class="hero-copy">
+            炎焱网络科技有限公司专注于超休闲游戏的研发与发行，
+            以清晰的核心玩法、流畅的操作体验和高效的产品迭代，
+            为全球玩家创造轻松、有趣、随时可以开始的游戏体验。
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#services">了解我们的业务</a>
+            <a class="button button-secondary" href="#contact">合作联系</a>
+          </div>
+        </div>
+
+        <div class="visual" aria-hidden="true">
+          <div class="orb"></div>
+
+          <div class="game-card card-one">
+            <div class="game-icon">▶</div>
+            <strong>快速上手</strong>
+            <span>用直观规则降低理解成本，让乐趣从第一秒开始。</span>
+          </div>
+
+          <div class="game-card card-two">
+            <div class="game-icon">✦</div>
+            <strong>持续迭代</strong>
+            <span>通过数据与玩家反馈，不断打磨核心体验。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">About Us</div>
+          <h2>专注轻量体验，也重视长期价值</h2>
+          <p>
+            我们相信，优秀的超休闲游戏并不意味着简单粗糙。
+            从玩法原型、交互反馈到商业化和发行测试，每一个环节都需要清晰、克制和持续优化。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div class="section-kicker">What We Do</div>
+          <h2>从创意原型到全球发行</h2>
+          <p>围绕超休闲游戏产品，我们提供完整的研发与发行能力。</p>
+        </div>
+
+        <div class="services">
+          <article class="service-card">
+            <div class="service-number">01</div>
+            <h3>游戏研发</h3>
+            <p>
+              聚焦轻量、直观和高反馈的核心玩法，快速完成原型验证、内容开发与版本迭代。
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">02</div>
+            <h3>产品测试</h3>
+            <p>
+              通过数据分析和小规模测试评估留存、可玩性与市场潜力，为产品决策提供依据。
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-number">03</div>
+            <h3>全球发行</h3>
+            <p>
+              面向不同市场进行产品适配、素材测试、版本运营与持续优化，扩大产品触达范围。
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="approach">
+      <div class="container">
+        <div class="approach">
+          <div>
+            <div class="section-kicker">Our Approach</div>
+            <h2>小步验证，快速迭代</h2>
+            <p>
+              我们以玩家体验为中心，用更短的开发周期验证创意，
+              再通过真实数据判断方向，把资源投入到真正有潜力的产品中。
+            </p>
+          </div>
+
+          <div class="steps">
+            <div class="step">
+              <div class="step-mark">1</div>
+              <div>
+                <h3>发现创意</h3>
+                <p>从一个清晰、有辨识度的核心动作出发。</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-mark">2</div>
+              <div>
+                <h3>快速验证</h3>
+                <p>用可玩原型和真实反馈检验产品潜力。</p>
+              </div>
+            </div>
+
+            <div class="step">
+              <div class="step-mark">3</div>
+              <div>
+                <h3>持续优化</h3>
+                <p>围绕留存、体验和商业表现不断迭代。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>期待与优秀的创意相遇</h2>
+            <p>
+              欢迎游戏开发者、发行平台及行业合作伙伴与我们联系，共同探索更多轻松有趣的游戏体验。
+            </p>
+          </div>
+
+          <!-- 将下面的邮箱替换为公司的真实业务邮箱 -->
+          <a class="button" href="mailto:hpph2502@gmail.com">发送合作邮件</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year"></span> 炎焱网络科技有限公司. All rights reserved.</p>
+      <div class="footer-links">
+        <!-- 如有隐私政策页面，可将链接改为 /privacy-policy.html -->
+        <a href="#home">返回顶部</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
