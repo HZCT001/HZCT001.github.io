@@ -1,0 +1,42 @@
+:root { color-scheme: dark; --text: #f7f8fb; --muted: #aab2c0; --line: rgba(255,255,255,.1); --accent: #ffb347; }
+* { box-sizing: border-box; }
+html { scroll-behavior: auto; scroll-padding-top: 120px; }
+body { margin: 0; color: var(--text); font-family: Inter, 'PingFang SC', 'Microsoft YaHei', system-ui, -apple-system, 'Segoe UI', sans-serif; background: radial-gradient(ellipse at 85% 0, rgba(255,107,53,.13), transparent 650px), #0b0e14; }
+a { color: inherit; }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.container { width: min(calc(100% - 40px), 1160px); margin: 0 auto; }
+.nav { position: sticky; top: 0; z-index: 10; background: rgba(9,12,17,.94); backdrop-filter: blur(18px); border-bottom: 1px solid var(--line); }
+.nav-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; }
+.brand-mark { width: 38px; height: 38px; flex-shrink: 0; display: grid; place-items: center; border-radius: 12px; color: #17110d; background: linear-gradient(135deg,#ffb347,#ff6b35); font-size: 20px; font-weight: 900; }
+.brand-name { font-size: 16px; }
+.nav-links, .footer-links { display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px; }
+.nav-links a, .footer-links a { color: var(--muted); text-decoration: none; }
+.nav-links a:hover, .footer-links a:hover, .nav-links [aria-current] { color: var(--accent); }
+.legal { max-width: 900px; padding: 60px 0 76px; }
+.breadcrumb { display: inline-block; color: var(--muted); font-size: 14px; text-decoration: none; margin-bottom: 36px; }
+.breadcrumb:hover { color: var(--accent); }
+h1 { font-size: clamp(36px,6vw,58px); line-height: 1.12; letter-spacing: -.035em; margin: 0 0 18px; }
+.updated { color: var(--muted); font-size: 14px; margin: 0 0 38px; }
+.document { font-size: 16px; line-height: 1.85; color: #ced4df; overflow-wrap: anywhere; }
+.document p { margin: 0 0 20px; }
+.document a { color: #ffc089; text-underline-offset: 4px; }
+h2 { color: var(--text); font-size: clamp(24px,3vw,30px); line-height: 1.35; margin: 52px 0 22px; padding-top: 26px; border-top: 1px solid var(--line); letter-spacing: -.02em; }
+h3 { color: var(--text); font-size: 20px; line-height: 1.5; margin: 32px 0 16px; }
+.toc { margin: 28px 0 44px; border: 1px solid var(--line); border-radius: 20px; background: rgba(255,255,255,.035); padding: 24px; }
+.toc summary { cursor: pointer; color: var(--text); font-weight: 700; }
+.toc ul { list-style: none; padding: 0; margin: 20px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 28px; }
+.toc li { font-size: 14px; line-height: 1.6; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--accent); text-decoration: underline; }
+.document .minor-heading { font-weight: 700; color: var(--text); margin-top: 28px; }
+.page-end { margin-top: 52px; padding-top: 24px; border-top: 1px solid var(--line); }
+.page-end a { text-decoration: none; }
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 13px; }
+.footer-inner { min-height: 96px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.skip-link { position: fixed; top: -100px; left: 20px; z-index: 30; background: #ffb347; color: #17110d; padding: 12px 18px; border-radius: 8px; }
+.skip-link:focus { top: 12px; }
+@media (max-width: 760px) { .nav-inner { padding: 16px 0; flex-wrap: wrap; gap: 16px; } .nav-links { gap: 16px; } .brand-name { font-size: 14px; } .legal { padding-top: 36px; } .toc ul { grid-template-columns: 1fr; } .footer-inner { flex-direction: column; align-items: flex-start; padding: 24px 0; } html { scroll-padding-top: 155px; } }
+@media (max-width: 480px) { .container { width: calc(100% - 28px); } .toc { padding: 20px; } .document { font-size: 15px; } .nav-links { font-size: 13px; } }
+@media print { :root { color-scheme: light; } body { background: white; color: black; } .nav, footer, .breadcrumb, .page-end, .skip-link, .toc { display: none; } .legal { width: 100%; max-width: none; padding: 0; } .document, h2, h3, .updated, .document .minor-heading { color: black; } h2, h3 { break-after: avoid; } .document a { color: black; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
